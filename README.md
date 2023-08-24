@@ -2,8 +2,13 @@
 |   | Integrantes |
 | ------------ | ------------ | 
 | 1 | Martos Marcos |
-| 2 | Matías Ikz    |
+| 2 | Matías Ikaczijk    |
 | 3 | Enzo Balderrama    |
-| 4 | Celda 1,2    |
-| 5 | Celda 2,2    |
-| 6 | Celda 3,2    |
+| 4 | Alejandro Perez    |
+| 5 | Angelo Vellar    |
+| 6 | Joaquin Espósito    |
+| 7 | Juan Pablo     |
+| 8 |     |
+| 9 |    |
+| 10 |    |
+
