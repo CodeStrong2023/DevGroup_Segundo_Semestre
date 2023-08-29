@@ -7,7 +7,7 @@
 | 4 | Alejandro Perez    |
 | 5 | Angelo Vellar    |
 | 6 | Joaquin Espósito    |
-| 7 | Juan Pablo     |
+| 7 | Juan Pablo Quiles     |
 | 8 |     |
 | 9 |    |
 | 10 |    |
