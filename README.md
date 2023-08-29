@@ -8,7 +8,7 @@
 | 5 | Angelo Vellar    |
 | 6 | Joaquin Espósito    |
 | 7 | Juan Pablo     |
-| 8 |     |
+| 8 | Bruno Olivera    |
 | 9 |    |
 | 10 |    |
 
