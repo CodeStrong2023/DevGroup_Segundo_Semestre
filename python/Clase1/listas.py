@@ -1,42 +1,47 @@
-#Listas (Array)
+# Listas (Array)
 
-nombres = ["Marcos", "Brisa", "Pablo", "Donato",  "Guillermina", "Sofía", "Axel"]
+nombres = ["Marcos", "Brisa", "Pablo", "Donato", "Guillermina", "Sofía", "Axel"]
 # print(nombres)
 # print(nombres[0:3])
 # print(nombres[ :3])
 # print(nombres[1: ])
-#Modificamos un valor
-nombres[3]= "Jose"
+# Modificamos un valor
+nombres[3] = "Jose"
 print(nombres)
-#Iterar lista
+# Iterar lista
 for nombre in nombres:
     print(nombre)
 else:
     print("Se acabaron los nombres de la lista")
 
-#cuanto elementos tiene
+# cuanto elementos tiene
 print(len(nombres))
 
-#agregamos elemento
+# agregamos elemento
 nombres.append("Marcelo")
+nombres.append([1, 2, 3])
+nombres.append(True)
+nombres.append(10.45)
+nombres.append([4, 5])
+nombres.append(7)
 print(nombres)
 
-#Agregar elemento en indice especifico
+# Agregar elemento en indice especifico
 nombres.insert(1, "Alberto")
 print(nombres)
 
-#eliminar elemento
+# eliminar elemento
 nombres.remove("Alberto")
 print(nombres)
 
-#eliminar ultimo elemento
+# eliminar ultimo elemento
 nombres.pop()
 print(nombres)
 
-#eliminar indice especifico
+# eliminar indice especifico
 del nombres[2]
 print(nombres)
 
-#eliminar todo
+# eliminar todo
 nombres.clear()
 print(nombres)
