@@ -5,13 +5,14 @@
  * cuando el usuario acierta y mostramos el numero de intentos.
  */
 
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 public class Ejercicio5 {
     public static void main(String[] args) {
         int numero, N, i; // Donde N es el numero a hallar e i el número de intentos.
         N = (int)(Math.random()*(100+1)); i = 0;
-        System.out.println("BIENVENIDO a *Adivina el número*");
+        JOptionPane.showMessageDialog(null, "BIENVENIDO", "Adivina el número", JOptionPane.PLAIN_MESSAGE, new ImageIcon("C:\\Users\\enzo_\\Segundo_Semestre\\DevGroup_Segundo_Semestre\\Java2023\\Segundo Semestre/DEV.jpg"));
         numero = Integer.parseInt(JOptionPane.showInputDialog("Ingrese un número: "));
         do {
             if (numero>N){
