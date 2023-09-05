@@ -147,3 +147,110 @@ print(tupla)
 print(4 in tupla) # Acción booleana, su respuesta es de tipo booleana
 # Lo que podemos usar de tuplas son: index, count, len.
 # En tuplas se puede convertir de tupla a lista y viceversa.
+
+# Repaso set o conjunto.
+# Para definir un conjunto.
+conjunto2 = set()
+conjunto1 = {"Bye", }
+conjunto2.add(7)
+conjunto2.add("Hola")
+print(conjunto2)
+conjunto1.add("hola")
+print(conjunto1)
+print(3 not in conjunto1)
+
+# Como hacer la igualdad de dos conjuntos
+print(conjunto1 == conjunto2)
+
+# Operaciones con conjuntos
+conjunto3 = conjunto1 | conjunto2 # La línea | une los 2 conjuntos.
+print(conjunto3)
+conjunto3 = conjunto1 & conjunto2 # Intercección.
+print(conjunto3)
+conjunto3 = conjunto2 - conjunto1
+print(conjunto3)
+conjunto3 = conjunto1 ^ conjunto2 # Elementos que no comparten
+print(conjunto3)
+
+conjunto3 = conjunto1 | conjunto2
+print(conjunto2.issubset(conjunto3)) # Preguntamos si el conjunto2 es un subconjunto del conjunto3
+print(conjunto1.issubset(conjunto3))
+print(conjunto3.issubset(conjunto1))
+
+print(conjunto3.issuperset(conjunto1))
+print(conjunto3.issuperset(conjunto2))
+print(conjunto2.issuperset(conjunto3))
+
+# Como saber si dos conjuntos no se intersecan.
+
+print(conjunto1.isdisjoint(conjunto2))
+
+# Como convertir un conjunto en inmutable.
+conjunto1 = frozenset # No se puede agregar, modificar u eliminar elementos del conjunto.
+
+# Repaso Diccionarios
+
+diccionarioNuevo = {"Azul" : "Blue", "Rojo" : "Red", "Verde" : "Green", "Amarillo" : "Yellow"}
+print(diccionarioNuevo)
+# Como eliminar
+del (diccionarioNuevo["Azul"])
+print(diccionarioNuevo)
+#Los diccionarios pueden almacenar distintos tipos de datos.
+diccionario2 = {"Ariel": {"edad" : 40, "Altura" : 1.83}, "Enzo" : [25, 1.85], "Rocío" : [20, 1.66]}
+print(diccionario2)
+
+seleccionArgentina = {
+    10 : {"Nombre" : "Lionel Messi", "Edad" : 36, "Altura" : 1.70, "Precio" : "50 millones", "Posición" : "Extremo Derecho"},
+    11 : {"Nombre" : "Angel Di María", "Edad" : 35, "Altura" : 1.80, "Precio" : "12 millones", "Posición" : "Extremo Derecho"},
+    21 : {"Nombre" : "Pablo Dybala", "Edad" : 29, "Altura" : 1.77, "Precio" : "35 millones", "Posición" : "Media Punta"},
+    19 : {"Nombre" : "Nicolas Otamendi", "Edad" : 35, "Altura" : 1.83, "Precio" : "3.5 millones", "Posición" : "Defensa Central"},
+    1 : {"Nombre" : "Franco Armani", "Edad" : 36, "Altura" : 1.89, "Precio" : "3.5 millones", "Posición" : "Portero"},  
+}
+print(seleccionArgentina)
+print("Tenemos cargado en nuestro diccionario la cantidad de: ", len(seleccionArgentina), " jugadores.")
+seleccionArgentina[24] = {"Nombre" : "Enzo Fernandez", "Edad" : 22, "Altura" : 1.78, "Precio" : "121 millones", "Posición" : "Centrocampista"}
+print(seleccionArgentina)
+print("Tenemos cargado en nuestro diccionario la cantidad de: ", len(seleccionArgentina), " jugadores.")
+seleccionArgentina[27] = {"Nombre" : "Julián Álvarez", "Edad" : 23, "Altura" : 1.70, "Precio" : "60 millones", "Posición" : "Delantero"}
+print(seleccionArgentina)
+print("Tenemos cargado en nuestro diccionario la cantidad de: ", len(seleccionArgentina), " jugadores.")
+seleccionArgentina[4] = {"Nombre" : "Gonzalo Montiel", "Edad" : 26, "Altura" : 1.75, "Precio" : "14 millones", "Posición" : "Defensa"}
+
+for llave, valor in seleccionArgentina.items():
+    print(llave, valor)
+print("Tenemos cargado en nuestro diccionario la cantidad de: ", len(seleccionArgentina), " jugadores.")
+
+# Lista tipo pila
+pila = [1, 2, 3]
+
+# Agregar elementos a la pila
+pila.append(4)
+pila.append(5)
+print(pila)
+
+# Sacamos elementos de la pila (por el final)
+elemento_borrado = pila.pop()
+print(f'Elemento borrado: {elemento_borrado}')
+print(f'La pila ahora queda así: {pila}')
+
+# Lista tipo cola
+cola = ["Rocio", "Jazmin", "Enzo", "Ariel"]
+
+# Agregamos elementos al final de la cola
+cola.append("Marianela")
+cola.append("Emanuel")
+print(cola)
+
+# Sacamos elementos de la cola
+seRetira = cola.pop(0)
+print(f"Atendido el cliente: {seRetira}")
+print(cola)
+seRetira = cola.pop(0)
+print(f"Atendido el cliente: {seRetira}")
+print(cola)
+seRetira = cola.pop(0)
+print(f"Atendido el cliente: {seRetira}")
+print(cola)
+seRetira = cola.pop(0)
+print(f"Atendido el cliente: {seRetira}")
+print(cola)
