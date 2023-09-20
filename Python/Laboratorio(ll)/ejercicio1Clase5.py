@@ -1,0 +1,12 @@
+#Ejercicio 1: Sumar números pares dentro de un rango
+#Hacer un programa para súmar números pares dentro de un rango por ej:
+#Suma de números pares del 2 al 30
+#suma = 240
+
+a = int(input("Digite de donde va comenzar la suma:"))
+b = int(input("Digite hasta donde quiere llegar a sumar: "))
+suma = 0
+for i in range(a,b+1):
+    if i % 2 == 0: #Esto es si el numero es par
+        suma += i
+print(f"\nLa suma de números pares dentro del rango es: {suma} ")
