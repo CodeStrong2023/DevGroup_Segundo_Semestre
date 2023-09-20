@@ -7,7 +7,13 @@ public class Aritmetica {
     //Metodo
     public void sumarNumeros(){
         int resultado  = a + b;
+    
         System.out.println("resulado = " + resultado);
     }
     
+    public int sumarConRetorno(){
+        //int resultado = a + b;
+        return a + b;
+    
+    }
 }
