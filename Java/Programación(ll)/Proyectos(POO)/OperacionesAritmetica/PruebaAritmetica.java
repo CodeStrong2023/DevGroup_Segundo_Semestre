@@ -1,4 +1,4 @@
-package Operaciones;
+package OperacionesAritmetica;
 
 public class PruebaAritmetica {
     public static void main(String[] args) {

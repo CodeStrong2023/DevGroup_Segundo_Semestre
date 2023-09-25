@@ -1,4 +1,4 @@
-package Clases;
+package ProyectoPersona;
 
 public class PruebaPersona {
     public static void main(String[] args) {
@@ -9,5 +9,8 @@ public class PruebaPersona {
 
         Persona persona2 = new Persona();
         System.out.println("Persona2 = " + persona2 );
+        
+            
+        
     }
 }
