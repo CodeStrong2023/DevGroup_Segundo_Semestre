@@ -43,7 +43,7 @@ public class main {
             opcInicio = Integer.parseInt(JOptionPane.showInputDialog("1 - Iniciar Sesión. \n 2 - Registrarse. \n 3 - Salir. \n ¿Qué desea hacer? "));
             registro(saved_user,saved_pass,saved_dom,saved_cel,inv);
             pedir_datos(user,pass,domicilio,cel,saved_user,saved_pass,saved_dom,saved_cel,inv,x);
-            // mostrar menu
+            // Mostrar Menú.
             menu(saved_user,saved_pass,saved_dom,saved_cel,inv,x,total,productos);
         }
         private static void menu(String[] saved_user, String[] saved_pass, String[] saved_dom, int[] saved_cel,
