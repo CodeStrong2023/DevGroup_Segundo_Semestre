@@ -28,3 +28,33 @@ public class pruebaArit {
 
     }
 }
+
+class Persona{
+    String nombre;
+    String apellido;
+    public String nombres;
+    public String apellidos;
+
+    Persona(String nombre, String apellido){
+        new Imprimir().imprimir(this);
+        this.nombre = nombre;
+        this.apellido = apellido;
+        System.out.println("Persona (this): "+this);
+
+    }
+
+    class Imprimir{
+    public Imprimir(){
+        super();
+    }
+
+    public void imprimir(Persona persona){
+    System.out.println("Persona (print): "+persona);
+    System.out.println("Objeto (this): "+this);
+}
+}
+
+    public void ObtenerInformacion() {
+    }
+
+}
