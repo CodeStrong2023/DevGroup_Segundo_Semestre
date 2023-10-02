@@ -27,4 +27,7 @@ public class Aritmetica {
         return a + b;
     
     }
+    public int sumarConArgumentos(int i, int j) {
+        return 0;
+    }
 }
