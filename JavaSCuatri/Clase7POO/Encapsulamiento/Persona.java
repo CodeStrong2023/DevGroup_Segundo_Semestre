@@ -1,4 +1,4 @@
-package Clase7POO.Encapsulamiento;
+package Encapsulamiento;
 // dominio
 
 // PARTE 1 ENCAPSULAMIENTO
@@ -40,6 +40,11 @@ public class Persona {
 
     public void setEliminado(boolean eliminado){
         this.eliminado = eliminado;
+    }
+
+    public String toString(){ // convierte en una cadena cada atributo
+        return "Persona [ nombre: "+ this.nombre + ", Sueldo: " + this.sueldo + 
+        " Eliminado: " + this.eliminado + " ]";
     }
 
 }
