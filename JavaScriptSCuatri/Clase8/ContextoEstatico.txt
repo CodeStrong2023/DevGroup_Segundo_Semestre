@@ -1,0 +1,11 @@
+* Contexto estático. Es el contexto en el cual trabajamos, no pude acceder al dinamico porque se necesitan que las clases ya esten cargadas
+
+* cuando ya está cargadada la clase en memoria, empezamos a crear objetos de la clase, conocidos como contexto dinamico.
+El dinamico, si puede acceder al contexto estático..
+-----
+
+La palabra STATIC, se asocia a la clase estático, se asocian las clases
+La informacion que modifiquemos en la clase, la van a ver los objetos
+
+USO: NombreClase.atributoEstatico
+
