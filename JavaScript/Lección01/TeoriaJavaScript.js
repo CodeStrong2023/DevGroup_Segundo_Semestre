@@ -63,3 +63,4 @@ console.log(typeof autos); //Preguntamos que tipo de datos es:
 var z = "";
 console.log(z); //Esto se refiere a que es una cadena vacía:
 console.log(typeof z );
+
