@@ -13,5 +13,17 @@ public class Aritmetica {
         System.out.println("resultado = " + resultado);
     }
     
+    //otro metodo
     
+    public int sumarConRetorno(){
+        //int resultado = a + b;
+        return this.a + this.b;
+    }
+    
+    public int sumarConArgumentos(int a, int b){
+        this.a = a; //El argumento "a" se asigna al atriburo "this.a"
+        this.b = b;
+        //return a+b;
+        return this.sumarConRetorno();
+    }
 }
