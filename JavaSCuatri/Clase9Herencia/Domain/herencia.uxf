@@ -1,0 +1,38 @@
+<diagram program="umletino" version="15.1"><zoom_level>10</zoom_level><help_text>extense</help_text><element><id>UMLClass</id><coordinates><x>110</x><y>20</y><w>210</w><h>250</h></coordinates><panel_attributes>&lt;&lt;Persona&gt;&gt;
+Package::Clase9Herencia.Domain
+
+--
+-nombre: String
+-genero: char
+-edad: int
+-direccion: String
+--
++getNombre():Str
++setNombre(String): void
++getGenero(): char
++setGenero(char): void
++getEdad(): int
++setEdad(int): void
++getDireccion(): String
++setDireccion(String): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>190</x><y>270</y><w>30</w><h>70</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;10;10;50</additional_attributes></element><element><id>Relation</id><coordinates><x>10</x><y>310</y><w>470</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;450;10</additional_attributes></element><element><id>Relation</id><coordinates><x>450</x><y>310</y><w>30</w><h>90</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;70;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>10</x><y>310</y><w>30</w><h>90</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;70;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>460</x><y>380</y><w>210</w><h>190</h></coordinates><panel_attributes>&lt;&lt;Cliente&gt;&gt;
+Package::Clase9Herencia.Domain
+
+--
+-idCliente: int
+-fechaRegistro: Date
+-vip: boolean
+--
++getIdCliente(): int
++getFecgaRegistro(): date
++setFechaRegistro(): void
++idVip(): boolean
++setVip(): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>0</x><y>380</y><w>210</w><h>150</h></coordinates><panel_attributes>&lt;&lt;Empleado&gt;&gt;
+Package::Clase9Herencia.Domain
+
+--
+-idEmpleado: int
+-sueldo: double
+--
++getIdEmpleado(): int
++setIdEmpleado(): double
++setSueldo(): void</panel_attributes><additional_attributes></additional_attributes></element></diagram>
