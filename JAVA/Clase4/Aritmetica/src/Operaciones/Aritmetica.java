@@ -11,6 +11,7 @@ public class Aritmetica {
         // 1-construye un objeto 
         // 2- Reserva un espacio en memoria
         //3- Incializa los atributos de la clase
+    
     public Aritmetica(){ //Constructor 1 vacio
         System.out.println("Se esta ejecutando el constructor n°1 ");
     }
