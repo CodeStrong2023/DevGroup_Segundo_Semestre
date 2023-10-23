@@ -63,3 +63,8 @@ Operadores Relacionales (booleano)
 >
 <=
 >=
+
+Operadores Logicos
+
+And -> && Doble aspersan 
+Or ->

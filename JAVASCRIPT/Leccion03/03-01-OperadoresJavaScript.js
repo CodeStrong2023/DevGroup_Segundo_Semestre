@@ -15,3 +15,14 @@ if(parImpar %2 == 0){
     else {
         console.log("Usted es una persona menor de edad")
     }
+
+//Ejercico : Dentro de un rango 
+
+let dentroRango = 10;
+let valMin =0,valMax= 10;
+if(dentroRango >=valMin && dentroRango <= valMax){
+    console.log("Esta dentro del rango establecido")
+}
+else{
+    console.log("Esta fuera del rango establecido")
+}
