@@ -1,10 +1,12 @@
 Sintaxis similares entre Java y JavaScript
-Operadores Simplificados
+Operadores Simplificados / Compuestos
 
 +=
 -=
 *=
 /=
+%=
+**=
 
 Operadores Aritmeticos
 
@@ -12,12 +14,19 @@ Operadores Aritmeticos
 -
 *
 /
+% 	//Residuo
+**	// exponente
 
 Operadores de Asignacion
 =
 
-Operadores de comparacion 
-==
+Los opreadores simplificados tambien asignan 
+
+Operadores de comparacion (booleano)
+
+== 	Revisa el valor sin importar el tipo de dato
+=== 	Revisa el valor y el tipo tambien
+
 
 Documentar
 // = para una linea de comentarios 
@@ -35,6 +44,22 @@ Secuencias de Escape
 
 Operador de Aumento
 ++
+Ejemplo : Let z = ++a; // pre incremento 
+Ejemplo : z = a++; //post incremento 
 
 Operador Decremento 
 --
+Ejemplo : Let z = --a; // pre decremento 
+Ejemplo : z = a--; //post decremento 
+
+Operador Distinto (booleano)
+
+!= 	comprueba el valor y sin revisar el tipo
+!== 	comprueba el valor y tambien el tipo
+
+Operadores Relacionales (booleano)
+
+<
+>
+<=
+>=
