@@ -1,11 +1,13 @@
 package ProyectoJava;
 
 import javax.swing.JOptionPane;
+import ProyectoJava.user;
 
 public class main {
     public static void clearScreen() {
         for (int i = 0; i < 50; i++) {
             System.out.println();
+<<<<<<< Updated upstream
         }
     }
 
@@ -29,6 +31,64 @@ public class main {
 
     }
 
+=======
+        }
+    }
+
+    static boolean inv = false; // variable para saber si el usuario ingresa como invitado.
+    String user; // Variables para ingresar nombre de usuario, contraseña y domicilio.
+    String pass;
+    String domicilio;
+    int cel;// Variables para, ingresar telefono, y X para el lugar en el arreglo de
+                   // usuarios del usuario.
+    static int x = 0;
+    String[] opc;
+    static int total = 0; // Variable para almacenar el monto del carrito.
+    static String productos = "";
+
+    public static void pedir_datos(String user, String pass, String domicilio, int cel, user usuario, boolean inv, int x) {
+        int i, j, aux;
+        i = 0;
+        aux = 0;
+        if (inv == false) {
+            String opc;
+            opc = "N";
+            do {// Ciclo do while para volver a pedir datos en caso de que el usuario no esté registrado.
+                user = JOptionPane.showInputDialog("Usuario: ");
+
+                // Ciclo for, para recorrer todo el arreglo de usuarios almacenados hasta encontrar el proximo usuario vacío (contiene el valor "").
+                for (j = 0; j <= 9; j++) {
+                    if (user == saved_user[j]) {
+                        aux = j;
+                    }
+                }
+                if (user != saved_user[aux]) {
+                    opc = JOptionPane.showInputDialog("Usuario no encontrado. ¿Desea registrarse? (S/N)");
+
+                    if (opc == "S" || opc == "s") {
+                        registro(saved_user, saved_pass, saved_dom, saved_cel, inv);
+                    }
+                }
+            } while (user != saved_user[aux]);
+
+            if (saved_user[aux] == user) {
+                // Ciclo do while Hasta para pedir nuevamente la contraseña.
+                do {
+                    pass = JOptionPane.showInputDialog("Contraseña: ");
+                    if (pass == saved_pass[aux]) {
+                        System.out.println(" ");
+                        System.out.println("Bienvenido, " + user);
+                    } else {
+                        System.out.println("Contraseña errónea ");
+                    }
+                    i++;
+                } while (pass != saved_pass[aux] || i == 8);
+
+            }
+        }
+    }
+
+>>>>>>> Stashed changes
     public static void registro(String[] saved_user, String[] saved_pass, String[] saved_dom, int[] saved_cel,
             boolean inv) {
 
@@ -36,6 +96,10 @@ public class main {
 
     public static void main(String[] args) {
         int opcInicio; // Opcion para que el usuario ingrese o se registe.
+<<<<<<< Updated upstream
+=======
+        String[] opcionesInicio = {"Iniciar Sesión.", "Registrarse.", "Salir."};
+>>>>>>> Stashed changes
         System.out.println("\r\n" + //
                 "            ######  ####### #######    #    #     #  #####  #     # ######  ######  ### \r\n" + //
                 "            #     # #          #      # #   ##    # #     # #     # #     # #     #  #  \r\n" + //
@@ -45,12 +109,25 @@ public class main {
                 "            #     # #          #    #     # #    ## #     # #     # #    #  #    #   #  \r\n" + //
                 "            ######  #######    #    #     # #     #  #####   #####  #     # #     # ### \r\n" + //
                 "                                                                             ROTISERIA");
+<<<<<<< Updated upstream
         opcInicio = Integer.parseInt(JOptionPane
                 .showInputDialog("1 - Iniciar Sesión. \n 2 - Registrarse. \n 3 - Salir. \n ¿Qué desea hacer? "));
         registro(saved_user, saved_pass, saved_dom, saved_cel, inv);
         pedir_datos(user, pass, domicilio, cel, saved_user, saved_pass, saved_dom, saved_cel, inv, x);
         // Mostrar Menú.
         menu(saved_user, saved_pass, saved_dom, saved_cel, inv, x, total, productos);
+=======
+        opcInicio = JOptionPane.showOptionDialog(null, "¿Qué desea hacer?", "Bienvenido", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, opcionesInicio, opcionesInicio[2]);
+        switch (opcInicio){
+            case 0:
+                pedir_datos(user, pass, domicilio, cel, saved_user, saved_pass, saved_dom, saved_cel, inv, x);
+            case 1:
+                registro(saved_user, saved_pass, saved_dom, saved_cel, inv);
+            case 2:
+                System.out.println("Gracias por utilizar nuestros servicios. Hasta la próxima.");
+        }
+        
+>>>>>>> Stashed changes
     }
 
     private static void menu(String[] saved_user, String[] saved_pass, String[] saved_dom, int[] saved_cel,
@@ -100,6 +177,7 @@ public class main {
         
             int opcionArmar = 0;
 
+<<<<<<< Updated upstream
         String entrada = JOptionPane.showInputDialog("1: Mostrar las comidas disponibles\n2: Mostrar las bebidas disponibles\n3: Volver atrás");
         opcionArmar = Integer.parseInt(entrada);
 
@@ -116,6 +194,22 @@ public class main {
                 break;
             default:
                 JOptionPane.showMessageDialog(null, "Opción no válida");
+=======
+        String[] opcionesArmar = {"Mostrar las comidas disponibles", "Mostrar las bebidas disponibles", "Volver atrás"};
+        opcionArmar = JOptionPane.showOptionDialog(null, "Seleccione una opción.", "",JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, opcionesArmar, opcionesArmar[2]);
+
+        switch (opcionArmar) {
+            case 0:
+                mostrarComidas(saved_user, saved_pass, saved_dom, saved_cel, inv, x, total, productos);
+                continue;
+            case 1:
+                mostrarBebidas(saved_user, saved_pass, saved_dom, saved_cel, inv, x, total, productos);
+                continue;
+            case 2:
+                JOptionPane.showMessageDialog(null, "Volver atrás");
+                // Agrega la lógica para volver atrás
+                break;
+>>>>>>> Stashed changes
         }
 
     }
@@ -125,7 +219,11 @@ public class main {
         JOptionPane.showMessageDialog(null, "Su pedido ha sido registrado. Recibirá el mismo en 10-20min.");
     }
 
+<<<<<<< Updated upstream
     // Subproceso Carrito y productsoCarrito
+=======
+    // Subproceso Carrito y productosCarrito
+>>>>>>> Stashed changes
 
     /* .
      * .
