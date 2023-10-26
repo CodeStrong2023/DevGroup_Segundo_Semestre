@@ -1,21 +1,26 @@
 Sintaxis similares entre Java y Java Script.
-Operadores simplificados:
+Operadores simplificados / compuestos:
 +=
 -=
 *=
 /=
+%=
+**=
 
 Operadores aritméticos:
 +
 -
 *
 /
+%
 
 Operadores de asignación:
 =
+Los Operadores tambien asignan
 
 Operadores de comparación:
-==
+== revisa el valor sin importar el tipo
+=== revisa el valor y el tipo
 
 Documentar:
 // = Para una línea de comentario.
@@ -33,6 +38,19 @@ Secuencias de Escape:
 
 Operador de aumento:
 ++
-
+Ejemplo: Let z = ++a; // Preincremento
+Ejemplo: z = a++; // Posincremento z queda con el valor de a y a queda en a+1
 Operador de decremento:
 --
+Ejemplo: Let z = --a; // Predecremento
+Ejemplo: z = a--; // Posdecremento
+
+Operador distinto (Boolean):
+!= revisa el valor sin importar el tipo
+!== revisa el valor y el tipo
+
+Operadores relacionales(Boolean):
+<
+>
+<=
+>=
