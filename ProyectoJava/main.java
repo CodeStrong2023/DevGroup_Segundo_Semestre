@@ -26,16 +26,14 @@ public class main {
 
     public static void pedir_datos(String user, String pass, String domicilio, int cel, String[] saved_user,
             String saved_pass[], String saved_dom[], int[] saved_cel, boolean inv, int x) {
-        Scanner leer = new Scanner(System.in);
-        int i, j, aux;
+               int i, j, aux;
         i = 0;
         aux = 0;
         if (inv == false) {
-            char opc;
-            opc = 'N';
+            String opc;
+            opc = "N";
             do {// Ciclo do while para volver a pedir datos en caso de que el usuario no esté registrado.
-                System.out.print("Usuario: ");
-                user = leer.next();
+                user = JOptionPane.showInputDialog("Usuario: ");
 
                 // Ciclo for, para recorrer todo el arreglo de usuarios almacenados hasta encontrar el proximo usuario vacío (contiene el valor "").
                 for (j = 0; j <= 9; j++) {
@@ -44,9 +42,9 @@ public class main {
                     }
                 }
                 if (user != saved_user[aux]) {
-                    System.out.print("Usuario no encontrado. ¿Desea registrarse? (S/N)");
-                    opc = leer.next().charAt(aux);
-                    if (opc == 'S' || opc == 's') {
+                    opc = JOptionPane.showInputDialog("Usuario no encontrado. ¿Desea registrarse? (S/N)");
+
+                    if (opc == "S" || opc == "s") {
                         registro(saved_user, saved_pass, saved_dom, saved_cel, inv);
                     }
                 }
@@ -55,8 +53,7 @@ public class main {
             if (saved_user[aux] == user) {
                 // Ciclo do while Hasta para pedir nuevamente la contraseña.
                 do {
-                    System.out.print("Contraseña: ");
-                    pass = leer.next();
+                    pass = JOptionPane.showInputDialog("Contraseña: ");
                     if (pass == saved_pass[aux]) {
                         System.out.println(" ");
                         System.out.println("Bienvenido, " + user);
