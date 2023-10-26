@@ -28,7 +28,45 @@ public class main {
 
     public static void pedir_datos(String user, String pass, String domicilio, int cel, String[] saved_user,
             String saved_pass[], String saved_dom[], int[] saved_cel, boolean inv, int x) {
+               int i, j, aux;
+        i = 0;
+        aux = 0;
+        if (inv == false) {
+            String opc;
+            opc = "N";
+            do {// Ciclo do while para volver a pedir datos en caso de que el usuario no esté registrado.
+                user = JOptionPane.showInputDialog("Usuario: ");
 
+                // Ciclo for, para recorrer todo el arreglo de usuarios almacenados hasta encontrar el proximo usuario vacío (contiene el valor "").
+                for (j = 0; j <= 9; j++) {
+                    if (user == saved_user[j]) {
+                        aux = j;
+                    }
+                }
+                if (user != saved_user[aux]) {
+                    opc = JOptionPane.showInputDialog("Usuario no encontrado. ¿Desea registrarse? (S/N)");
+
+                    if (opc == "S" || opc == "s") {
+                        registro(saved_user, saved_pass, saved_dom, saved_cel, inv);
+                    }
+                }
+            } while (user != saved_user[aux]);
+
+            if (saved_user[aux] == user) {
+                // Ciclo do while Hasta para pedir nuevamente la contraseña.
+                do {
+                    pass = JOptionPane.showInputDialog("Contraseña: ");
+                    if (pass == saved_pass[aux]) {
+                        System.out.println(" ");
+                        System.out.println("Bienvenido, " + user);
+                    } else {
+                        System.out.println("Contraseña errónea ");
+                    }
+                    i++;
+                } while (pass != saved_pass[aux] || i == 8);
+
+            }
+        }
     }
 
 =======
