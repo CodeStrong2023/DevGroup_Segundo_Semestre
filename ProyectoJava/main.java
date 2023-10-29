@@ -1,6 +1,7 @@
 package ProyectoJava;
 
 import javax.swing.JOptionPane;
+import ProyectoJava.user;
 
 public class main {
     public static void clearScreen() {
@@ -10,23 +11,18 @@ public class main {
     }
 
     static boolean inv = false; // variable para saber si el usuario ingresa como invitado.
-    static String user; // Variables para ingresar nombre de usuario, contraseña y domicilio.
-    static String pass;
-    static String domicilio;
-    static int cel;// Variables para, ingresar telefono, y X para el lugar en el arreglo de
+    String user; // Variables para ingresar nombre de usuario, contraseña y domicilio.
+    String pass;
+    String domicilio;
+    int cel;// Variables para, ingresar telefono, y X para el lugar en el arreglo de
                    // usuarios del usuario.
     static int x = 0;
-    static String[] saved_user = new String[10]; // variables "saved" utilizadas para guardar los datos de usuario.
-    static String[] saved_pass = new String[10];
-    static String[] saved_dom = new String[10];
     String[] opc;
-    static int[] saved_cel = new int[10];
     static int total = 0; // Variable para almacenar el monto del carrito.
     static String productos = "";
 
-    public static void pedir_datos(String user, String pass, String domicilio, int cel, String[] saved_user,
-            String saved_pass[], String saved_dom[], int[] saved_cel, boolean inv, int x) {
-               int i, j, aux;
+    public static void pedir_datos(String user, String pass, String domicilio, int cel, user usuario, boolean inv, int x) {
+        int i, j, aux;
         i = 0;
         aux = 0;
         if (inv == false) {
@@ -74,6 +70,7 @@ public class main {
 
     public static void main(String[] args) {
         int opcInicio; // Opcion para que el usuario ingrese o se registe.
+        String[] opcionesInicio = {"Iniciar Sesión.", "Registrarse.", "Salir."};
         System.out.println("\r\n" + //
                 "            ######  ####### #######    #    #     #  #####  #     # ######  ######  ### \r\n" + //
                 "            #     # #          #      # #   ##    # #     # #     # #     # #     #  #  \r\n" + //
@@ -83,12 +80,16 @@ public class main {
                 "            #     # #          #    #     # #    ## #     # #     # #    #  #    #   #  \r\n" + //
                 "            ######  #######    #    #     # #     #  #####   #####  #     # #     # ### \r\n" + //
                 "                                                                             ROTISERIA");
-        opcInicio = Integer.parseInt(JOptionPane
-                .showInputDialog("1 - Iniciar Sesión. \n 2 - Registrarse. \n 3 - Salir. \n ¿Qué desea hacer? "));
-        registro(saved_user, saved_pass, saved_dom, saved_cel, inv);
-        pedir_datos(user, pass, domicilio, cel, saved_user, saved_pass, saved_dom, saved_cel, inv, x);
-        // Mostrar Menú.
-        menu(saved_user, saved_pass, saved_dom, saved_cel, inv, x, total, productos);
+        opcInicio = JOptionPane.showOptionDialog(null, "¿Qué desea hacer?", "Bienvenido", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, opcionesInicio, opcionesInicio[2]);
+        switch (opcInicio){
+            case 0:
+                pedir_datos(user, pass, domicilio, cel, saved_user, saved_pass, saved_dom, saved_cel, inv, x);
+            case 1:
+                registro(saved_user, saved_pass, saved_dom, saved_cel, inv);
+            case 2:
+                System.out.println("Gracias por utilizar nuestros servicios. Hasta la próxima.");
+        }
+        
     }
 
     private static void menu(String[] saved_user, String[] saved_pass, String[] saved_dom, int[] saved_cel,
@@ -138,22 +139,20 @@ public class main {
         
             int opcionArmar = 0;
 
-        String entrada = JOptionPane.showInputDialog("1: Mostrar las comidas disponibles\n2: Mostrar las bebidas disponibles\n3: Volver atrás");
-        opcionArmar = Integer.parseInt(entrada);
+        String[] opcionesArmar = {"Mostrar las comidas disponibles", "Mostrar las bebidas disponibles", "Volver atrás"};
+        opcionArmar = JOptionPane.showOptionDialog(null, "Seleccione una opción.", "",JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, opcionesArmar, opcionesArmar[2]);
 
         switch (opcionArmar) {
-            case 1:
+            case 0:
                 mostrarComidas(saved_user, saved_pass, saved_dom, saved_cel, inv, x, total, productos);
                 continue;
-            case 2:
+            case 1:
                 mostrarBebidas(saved_user, saved_pass, saved_dom, saved_cel, inv, x, total, productos);
                 continue;
-            case 3:
+            case 2:
                 JOptionPane.showMessageDialog(null, "Volver atrás");
                 // Agrega la lógica para volver atrás
                 break;
-            default:
-                JOptionPane.showMessageDialog(null, "Opción no válida");
         }
 
     }
@@ -163,7 +162,7 @@ public class main {
         JOptionPane.showMessageDialog(null, "Su pedido ha sido registrado. Recibirá el mismo en 10-20min.");
     }
 
-    // Subproceso Carrito y productsoCarrito
+    // Subproceso Carrito y productosCarrito
 
     /* .
      * .
