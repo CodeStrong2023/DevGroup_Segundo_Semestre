@@ -1,26 +1,27 @@
-
-public class Persona {
+                                //Creamos la clase persona
+public class Persona{
     //Atributos de herencia
     protected String nombre;
     protected char genero;
     protected int edad;
     protected String direccion;
 
-    //Constructor vacio: Este es para crear objetos sin necesidad de inicializar los atributps de la clase
+    //Constructor vacio: Este es para crear objetos sin necesidad de inicializar los atributos de la clase
     public Persona(){ //Constructor 1
 
     }
 
-    public Persona(String nombre){
+    public Persona(String nombre){ //Constrcutor 2
         this.nombre = nombre;
     }
 
-    public Persona(String nombre, char genero, int edad, String direccion){
+    public Persona(String nombre, char genero, int edad, String direccion){ //Constructor 3
         this.nombre = nombre;
         this.genero = genero;
         this.edad = edad;
         this.direccion = direccion;
     }
+                    //GET Y SET
 
     public String getDireccion(){
         return this.direccion;
@@ -54,7 +55,18 @@ public class Persona {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Persona{nombre=").append(nombre);
+        sb.append(", genero=").append(genero);
+        sb.append(", edad=").append(edad);
+        sb.append(",  direccion=").append(direccion);
+        sb.append(", ").append(super.toString());
+        sb.append("}");
+        return sb.toString();
+       
+        /*public String toString(){
         return "Persona{" + "nombre = "+ nombre +",genero = " + genero + ", edad = " + edad + ", dirección = " + direccion + "}";
+        } */
     }
 }
