@@ -33,38 +33,37 @@ public class main {
 
                 // Ciclo for, para recorrer todo el arreglo de usuarios almacenados hasta encontrar el proximo usuario vacío (contiene el valor "").
                 for (j = 0; j <= 9; j++) {
-                    if (user == saved_user[j]) {
+                    if (user == usuario.getUsuario()) {
                         aux = j;
                     }
                 }
-                if (user != saved_user[aux]) {
+                if (user != usuario.getUsuario()) {
                     opc = JOptionPane.showInputDialog("Usuario no encontrado. ¿Desea registrarse? (S/N)");
 
                     if (opc == "S" || opc == "s") {
-                        registro(saved_user, saved_pass, saved_dom, saved_cel, inv);
+                        registro(usuario, inv);
                     }
                 }
-            } while (user != saved_user[aux]);
+            } while (user != usuario.getUsuario());
 
-            if (saved_user[aux] == user) {
+            if (usuario.getUsuario() == user) {
                 // Ciclo do while Hasta para pedir nuevamente la contraseña.
                 do {
                     pass = JOptionPane.showInputDialog("Contraseña: ");
-                    if (pass == saved_pass[aux]) {
+                    if (pass == usuario.getPass()) {
                         System.out.println(" ");
                         System.out.println("Bienvenido, " + user);
                     } else {
                         System.out.println("Contraseña errónea ");
                     }
                     i++;
-                } while (pass != saved_pass[aux] || i == 8);
+                } while (pass != usuario.getPass() || i == 8);
 
             }
         }
     }
 
-    public static void registro(String[] saved_user, String[] saved_pass, String[] saved_dom, int[] saved_cel,
-            boolean inv) {
+    public static void registro(User usuario, boolean inv) {
 
     };
 
