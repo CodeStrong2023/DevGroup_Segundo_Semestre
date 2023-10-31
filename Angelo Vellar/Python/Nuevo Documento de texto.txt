@@ -1,0 +1,6 @@
+print("HolaMundo")
+miVariable = 10
+print(miVariable)
+miVariable2 = True
+print(miVariable2)
+miVariable3 = 30
