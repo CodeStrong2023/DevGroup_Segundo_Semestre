@@ -1,6 +1,6 @@
 
 package test;
-//x
+
 //import ar.com.codesystem.*;
 //import ar.com.codesystem.Utileria;
 import static ar.com.codesystem.Utileria.imprimir; //Solo aplica para metodos estáticos
@@ -11,7 +11,6 @@ public class TestUtlileria {
            
         //Utileria.imprimir("Saludos a todos los alumnos de la tecnicatura");
         imprimir("Terminamos en unos minutos");
-        
     }
             
 }
