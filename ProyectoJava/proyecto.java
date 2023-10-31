@@ -3,25 +3,24 @@ package ProyectoJava;
 import javax.swing.JOptionPane;
 import ProyectoJava.user;
 
-public class main {
+public class proyecto {
     public static void clearScreen() {
         for (int i = 0; i < 50; i++) {
             System.out.println();
         }
     }
-
     static boolean inv = false; // variable para saber si el usuario ingresa como invitado.
-    String user; // Variables para ingresar nombre de usuario, contraseña y domicilio.
-    String pass;
-    String domicilio;
-    int cel;// Variables para, ingresar telefono, y X para el lugar en el arreglo de
+    static String usuario; // Variables para ingresar nombre de usuario, contraseña y domicilio.
+    static String pass;
+    static String domicilio;
+    static int cel;// Variables para, ingresar telefono, y X para el lugar en el arreglo de
                    // usuarios del usuario.
     static int x = 0;
     String[] opc;
     static int total = 0; // Variable para almacenar el monto del carrito.
     static String productos = "";
 
-    public static void pedir_datos(String user, String pass, String domicilio, int cel, user usuario, boolean inv, int x) {
+    public static void pedir_datos(String usuario, String pass, String domicilio, int cel, user[] users, boolean inv, int x) {
         int i, j, aux;
         i = 0;
         aux = 0;
@@ -29,45 +28,46 @@ public class main {
             String opc;
             opc = "N";
             do {// Ciclo do while para volver a pedir datos en caso de que el usuario no esté registrado.
-                user = JOptionPane.showInputDialog("Usuario: ");
+                usuario = JOptionPane.showInputDialog("Usuario: ");
 
                 // Ciclo for, para recorrer todo el arreglo de usuarios almacenados hasta encontrar el proximo usuario vacío (contiene el valor "").
                 for (j = 0; j <= 9; j++) {
-                    if (user == usuario.getUsuario()) {
+                    if (usuario == users[j].getUsuario()) {
                         aux = j;
                     }
                 }
-                if (user != usuario.getUsuario()) {
+                if (usuario != users[aux].getUsuario()) {
                     opc = JOptionPane.showInputDialog("Usuario no encontrado. ¿Desea registrarse? (S/N)");
 
                     if (opc == "S" || opc == "s") {
-                        registro(usuario, inv);
+                        registro(users, inv);
                     }
                 }
-            } while (user != usuario.getUsuario());
+            } while (usuario != users[aux].getUsuario());
 
-            if (usuario.getUsuario() == user) {
+            if (users[aux].getUsuario() == usuario) {
                 // Ciclo do while Hasta para pedir nuevamente la contraseña.
                 do {
                     pass = JOptionPane.showInputDialog("Contraseña: ");
-                    if (pass == usuario.getPass()) {
+                    if (pass == users[aux].getPass()) {
                         System.out.println(" ");
-                        System.out.println("Bienvenido, " + user);
+                        System.out.println("Bienvenido, " + usuario);
                     } else {
                         System.out.println("Contraseña errónea ");
                     }
                     i++;
-                } while (pass != usuario.getPass() || i == 8);
+                } while (pass != users[aux].getPass() || i == 8);
 
             }
         }
     }
 
-    public static void registro(User usuario, boolean inv) {
+    public static void registro(user[] users, boolean inv) {
 
     };
 
     public static void main(String[] args) {
+        user[] users = new user[10];
         int opcInicio; // Opcion para que el usuario ingrese o se registe.
         String[] opcionesInicio = {"Iniciar Sesión.", "Registrarse.", "Salir."};
         System.out.println("\r\n" + //
@@ -82,20 +82,20 @@ public class main {
         opcInicio = JOptionPane.showOptionDialog(null, "¿Qué desea hacer?", "Bienvenido", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, opcionesInicio, opcionesInicio[2]);
         switch (opcInicio){
             case 0:
-                pedir_datos(user, pass, domicilio, cel, saved_user, saved_pass, saved_dom, saved_cel, inv, x);
+                pedir_datos(usuario, pass, domicilio, opcInicio, users, inv, opcInicio);
             case 1:
-                registro(saved_user, saved_pass, saved_dom, saved_cel, inv);
+                registro(users, inv);
             case 2:
                 System.out.println("Gracias por utilizar nuestros servicios. Hasta la próxima.");
         }
         
     }
 
-    private static void menu(String[] saved_user, String[] saved_pass, String[] saved_dom, int[] saved_cel,
+    private static void menu(user[] users,
             boolean inv, int x, int total, String productos) {
         
         if (inv = false) {
-         JOptionPane.showMessageDialog(null, "Bienvenido: " + saved_user[x]);
+         JOptionPane.showMessageDialog(null, "Bienvenido: " + users[x].getUsuario());
          }
         else {
             JOptionPane.showMessageDialog(null, "Bienvenido ");
@@ -114,18 +114,17 @@ public class main {
                
         switch(opcion) {
             case 1:
-                opcComprar(saved_user,saved_pass,saved_dom,saved_cel,inv,x,total,productos);
+                opcComprar(users,inv,x,total,productos);
             break;
             case 2:
-                opcArmar(saved_user,saved_pass,saved_dom,saved_cel,inv,x,total,productos);          
+                opcArmar(users,inv,x,total,productos);          
             break;
             }    
     }
 
     // Creamos el método opcArmar
 
-    public static void opcArmar(String user, String pass, String domicilio, int cel, String[] saved_user,
-            String saved_pass[], String saved_dom[], int[] saved_cel, boolean inv, int x) {
+    public static void opcArmar(String usuario, String pass, String domicilio, int cel, user[] users, boolean inv, int x) {
         int opcionArmar = 0;
         while (true) {
             opcionArmar = Integer.parseInt(JOptionPane.showInputDialog("1. Mostrar las comidas disponibles\n" +
@@ -133,15 +132,15 @@ public class main {
 
             switch (opcionArmar) {
                 case 1:
-                    mostrarComidas(user, pass, domicilio, cel, saved_user, saved_pass, saved_dom, saved_cel, inv, x);
+                    mostrarComidas(usuario, pass, domicilio, cel, users, inv, x);
                     continue;
 
                 case 2:
-                    mostrarBebidas(user, pass, domicilio, cel, saved_user, saved_pass, saved_dom, saved_cel, inv, x);
+                    mostrarBebidas(usuario, pass, domicilio, cel, users, inv, x);
                     continue;
 
                 case 3:
-                    menu(saved_user, saved_pass, saved_dom, saved_cel, inv, x, total, productos);
+                    menu(users, inv, x, total, productos);
                     break;
             }
 
@@ -161,7 +160,7 @@ public class main {
     }
 
     // Subproceso para elegir opcArmar
-        public static void opcArmar(String saved_user, String saved_pass, String saved_dom, String saved_cel, boolean inv, int x, int total, String[] productos) {
+        public static void opcArmar(user[] users, boolean inv, int x, int total, String[] productos) {
         
             int opcionArmar = 0;
 
@@ -170,10 +169,10 @@ public class main {
 
         switch (opcionArmar) {
             case 0:
-                mostrarComidas(saved_user, saved_pass, saved_dom, saved_cel, inv, x, total, productos);
+                mostrarComidas(users, inv, x, total, productos);
                 continue;
             case 1:
-                mostrarBebidas(saved_user, saved_pass, saved_dom, saved_cel, inv, x, total, productos);
+                mostrarBebidas(users, inv, x, total, productos);
                 continue;
             case 2:
                 JOptionPane.showMessageDialog(null, "Volver atrás");
@@ -196,13 +195,11 @@ public class main {
      */
 
     // Subproceso 9: Mostrar comidas disponibles
-    public static void mostrarComidas(String user, String pass, String domicilio, int cel, String[] saved_user,
-            String saved_pass[], String saved_dom[], int[] saved_cel, boolean inv, int x) {
+    public static void mostrarComidas(String user, String pass, String domicilio, int cel, user[] users, boolean inv, int x) {
     }
 
     // Subproceso 10: Mostrar bebidas disponibles (Marcos)
-    public static void mostrarBebidas(String user, String pass, String domicilio, int cel, String[] saved_user,
-            String saved_pass[], String saved_dom[], int[] saved_cel, boolean inv, int x) {
+    public static void mostrarBebidas(String user, String pass, String domicilio, int cel, user[] users, boolean inv, int x) {
 
         // Declarar variables
 
@@ -342,7 +339,7 @@ public class main {
                 carro = Carrito(total, precio);
                 productos = ProductosCarrito(productos, bebidaElegida);
                 mostrar_carrito(carro, productos);
-                opcArmar(saved_user, saved_pass, saved_dom, saved_cel, inv, x, total, productos);
+                opcArmar(users, inv, x, total, productos);
             } else {
                 if (opcCarrito.equals("N")) {
                     carro = Carrito(total, precio);
@@ -368,8 +365,8 @@ public class main {
                             dom_inv = JOptionPane.showInputDialog("Por Favor Ingrese su domicilio:");
                             fin_compra();
                         } else {
-                            if (saved_dom[x].isEmpty()) {
-                                saved_dom[x] = JOptionPane.showInputDialog("Domicilio No cargado. Por Favor Ingrese su domicilio:");
+                            if (users[x].getDomicilio().isEmpty()) {
+                                users[x].setDomicilio(JOptionPane.showInputDialog("Domicilio No cargado. Por Favor Ingrese su domicilio:"));
                                 fin_compra();
                             } else {
                                 fin_compra();

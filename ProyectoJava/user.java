@@ -6,6 +6,10 @@ public class user {
     private static int idUsuario;
     private int cel;
 
+    public user(){
+        
+    }
+
     public user(String usuario, String pass){
         this.usuario = usuario;
         this.pass = pass;
@@ -38,7 +42,7 @@ public class user {
     }
 
     public static int getIdUsuario() {
-        return this.idUsuario;
+        return idUsuario;
     }
 
 
