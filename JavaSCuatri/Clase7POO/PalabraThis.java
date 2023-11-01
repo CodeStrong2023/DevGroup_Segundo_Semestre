@@ -1,1 +1,0 @@
-// Apunta hacia una referencia (atributo), traducido como "esto"
