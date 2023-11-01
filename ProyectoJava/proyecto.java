@@ -1,5 +1,6 @@
 package ProyectoJava;
 
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import ProyectoJava.user;
 
@@ -153,7 +154,7 @@ public class proyecto {
                 "            #     # #          #    #     # #    ## #     # #     # #    #  #    #   #  \r\n" + //
                 "            ######  #######    #    #     # #     #  #####   #####  #     # #     # ### \r\n" + //
                 "                                                                             ROTISERIA");
-        opcInicio = JOptionPane.showOptionDialog(null, "¿Qué desea hacer?", "Bienvenido", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, opcionesInicio, opcionesInicio[2]);
+        opcInicio = JOptionPane.showOptionDialog(null, "¿Qué desea hacer?", "Bienvenido", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, new ImageIcon("ProyectoJava/betan (1).jpg"), opcionesInicio, opcionesInicio[2]);
         switch (opcInicio){
             case 0:
                 pedir_datos(usuario, pass, domicilio, opcInicio, users, inv, opcInicio);
