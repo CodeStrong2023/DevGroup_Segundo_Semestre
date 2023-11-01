@@ -1,0 +1,58 @@
+sintaxis similares entre java y JavaScript
+Operadores:
+-- Simplificados - compuestos: 
++=
+-=
+*=
+/=
+%= residuo
+**= exponente
+
+-- Aritmeticos:
++
+-
+*
+/
+% residuo 
+** exponente
+
+-- de asignacion:
+=
+
+-- de Comparacion:
+== revisa el valor sin importar el tipo
+
+Documentar:
+// una linea de comentario
+/* */ multiples lineas
+
+Secuencias de escape:
+\' Mostrar una comilla simple dentro de una cadena en la salida de informacion
+
+\" Mostrar foble comilla dentro de una cadena en la salida de informacion 
+
+\\ Barra invertida, diagonal inversa, para mostrar un bash lash
+
+\n = salto de linea
+\r = retorno
+\t = tabulacion
+\b = retroceso
+\f = salto de pag
+
+Operador de aumento:
+++ --> uno en uno
+Ej: Let z = ++a; // Preincremento
+ej: Let z = a++; // Posincremento
+
+Operador de decremento:
+--
+
+Operador distinto: (boolean)
+!=  comprueba valor sin revisar el tipo
+!== comprueba valor y el tipo
+
+Operador relacionales:
+<
+>
+>=
+<=
