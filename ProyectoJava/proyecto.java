@@ -22,42 +22,45 @@ public class proyecto {
     static String productos = "";
 
     public static void pedir_datos(String usuario, String pass, String domicilio, int cel, user[] users, boolean inv, int x) {
-        int i, j, aux;
-        i = 0;
-        aux = 0;
-        if (inv == false) {
-            String opc;
-            opc = "N";
+        int j, aux, opc;
+        int i = 0;
+        String[] opciones = {"Si", "No"};
+        aux = -1;
+        if (!inv) {
+            opc = 1;
             do {// Ciclo do while para volver a pedir datos en caso de que el usuario no esté registrado.
                 usuario = JOptionPane.showInputDialog("Usuario: ");
 
                 // Ciclo for, para recorrer todo el arreglo de usuarios almacenados hasta encontrar el proximo usuario vacío (contiene el valor "").
                 for (j = 0; j <= 9; j++) {
-                    if (usuario == users[j].getUsuario()) {
+                    if (users[j] != null && users[j].getUsuario().equals(usuario)) {
                         aux = j;
+                        break;
                     }
                 }
-                if (usuario != users[aux].getUsuario()) {
-                    opc = JOptionPane.showInputDialog("Usuario no encontrado. ¿Desea registrarse? (S/N)");
+                if (aux == -1) {
+                    opc = JOptionPane.showOptionDialog(null, "¿Usuario no encontrado. ¿Desea registrarse?", "Bienvenido", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, opciones, opciones[1]);
 
-                    if (opc == "S" || opc == "s") {
+                    if (opc == 0) {
                         registro(users, inv);
                     }
                 }
-            } while (usuario != users[aux].getUsuario());
+            } while (aux == -1);
 
-            if (users[aux].getUsuario() == usuario) {
+            if (aux != -1) {
                 // Ciclo do while Hasta para pedir nuevamente la contraseña.
                 do {
                     pass = JOptionPane.showInputDialog("Contraseña: ");
-                    if (pass == users[aux].getPass()) {
+                    if (users[aux].getPass().equals(pass)) {
                         System.out.println(" ");
                         System.out.println("Bienvenido, " + usuario);
+                        menu(users, inv, x, total, productos);
                     } else {
                         System.out.println("Contraseña errónea ");
+                        i++;
                     }
-                    i++;
-                } while (pass != users[aux].getPass() || i == 8);
+                    
+                } while (!users[aux].getPass().equals(pass) && i < 8);
 
             }
         }
@@ -76,7 +79,7 @@ public class proyecto {
 
         switch (opc) {
             case 0:
-
+                pedir_datos(usuario, pass, domicilio, cel, users, inv, x);
                 break;
             case 1:
                 opc2 = JOptionPane.showOptionDialog(null, "¿Desea Registrarse?", "Registro", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, opciones2, opciones2[2]);
@@ -128,6 +131,7 @@ public class proyecto {
                     }
 
                     JOptionPane.showMessageDialog(null, "El registro se ha realizado con éxito.");
+                    pedir_datos(usuario, pass, domicilio, cel, users, inv, x);
                 }
                 break;
         
@@ -157,7 +161,7 @@ public class proyecto {
         opcInicio = JOptionPane.showOptionDialog(null, "¿Qué desea hacer?", "Bienvenido", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, new ImageIcon("ProyectoJava/betan (1).jpg"), opcionesInicio, opcionesInicio[2]);
         switch (opcInicio){
             case 0:
-                pedir_datos(usuario, pass, domicilio, opcInicio, users, inv, opcInicio);
+                pedir_datos(usuario, pass, domicilio, cel, users, inv, x);
             case 1:
                 registro(users, inv);
             case 2:
