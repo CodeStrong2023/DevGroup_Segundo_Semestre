@@ -1,4 +1,17 @@
-     //Ampliando el uso de var let y const
+
+
+//Ejercicio: Dentro de un rango
+let dentroRango = 5; //Acá vamos a ir cambiando el valor
+let valMin = 0, valMax = 10;
+if(dentroRango >= valMin && dentroRango <= valMax){
+    console.log("Esta dentro del rango establecido")
+}
+else{
+    console.log("Esta fuera del rango establecido")
+}
+    
+
+    //Ampliando el uso de var let y const
 /*
     Con var puedes reasignar en cualquier momento, este forma parte del ambito global, 
     Un error es que se sobreescriba
@@ -43,15 +56,3 @@ console.log(fechaNacimiento);
 fechaNacimiento = 2003;
 console.log(fechaNacimiento); // Solo se ejecuta el console anterior
 
-
-
-
-//Ejercicio: Denro de un rango
-let dentroRango = 5; //Acá vamos a ir cambiando el valor
-let valMin = 0, valMax = 10;
-if(dentroRango >= valMin && dentroRango <= valMax){
-    console.log("Esta dentro del rango establecido")
-}
-else{
-    console.log("Esta fuera del rango establecido")
-}
