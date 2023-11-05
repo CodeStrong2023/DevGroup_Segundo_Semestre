@@ -18,7 +18,8 @@ public class proyecto {
                    // usuarios del usuario.
     static int x = 0;
     String[] opc;
-    static int total = 0; // Variable para almacenar el monto del carrito.
+    // Inicializar el carrito y la lista de productos
+    static double total = 0; // Variable para almacenar el monto del carrito.
     static String productos = "";
 
     public static void pedir_datos(String usuario, String pass, String domicilio, int cel, user[] users, boolean inv, int x) {
@@ -171,7 +172,7 @@ public class proyecto {
     }
 
     private static void menu(user[] users,
-            boolean inv, int x, int total, String productos) {
+            boolean inv, int x, double total, String productos) {
         
         if (inv = false) {
          JOptionPane.showMessageDialog(null, "Bienvenido: " + users[x].getUsuario());
@@ -188,7 +189,7 @@ public class proyecto {
         //mostrar menu
         JOptionPane.showMessageDialog(null, "1: Comprar un combo");
         JOptionPane.showMessageDialog(null, "2: Armar Pedido");
-        opcion = Integer.parseInt(JOptionPane.showInputDialog("\nIngrese una opcion"));
+        opcion = Integer.parseInt(JOptionPane.showInputDialog("\n Ingrese una opcion"));
         //tras elegir una opcion
                
         switch(opcion) {
@@ -203,7 +204,7 @@ public class proyecto {
 
     // Creamos el método opcArmar
 
-    public static void opcArmar(String usuario, String pass, String domicilio, int cel, user[] users, boolean inv, int x) {
+    public static void opcArmar(user[] users, boolean inv, int x, double total, String productos) {
         int opcionArmar = 0;
         while (true) {
             opcionArmar = Integer.parseInt(JOptionPane.showInputDialog("1. Mostrar las comidas disponibles\n" +
@@ -211,11 +212,11 @@ public class proyecto {
 
             switch (opcionArmar) {
                 case 1:
-                    mostrarComidas(usuario, pass, domicilio, cel, users, inv, x);
+                    mostrarComidas(users, inv, x, total, productos);
                     continue;
 
                 case 2:
-                    mostrarBebidas(usuario, pass, domicilio, cel, users, inv, x);
+                    mostrarBebidas(users, inv, x, total, productos);
                     continue;
 
                 case 3:
@@ -228,18 +229,13 @@ public class proyecto {
     }
 
     // Subproceso para mostrar_carrito
-    public static void mostrar_carrito(double carro, String[] productos) {
-        String mensaje = "Los productos del carrito son:\n";
-        for (String producto : productos) {
-            mensaje += producto + "\n";
-        }
-        mensaje += "El monto del carrito es: $ " + carro;
-
-        JOptionPane.showMessageDialog(null, mensaje);
+    public static void mostrar_carrito(double total, String productos) {
+        String mensaje = "Los productos del carrito son:\n" + productos + "\n El monto del carrito es: $ " + total;
+        JOptionPane.showMessageDialog(null, mensaje, "Carrito de Compras", JOptionPane.INFORMATION_MESSAGE);
     }
 
     // Subproceso para elegir opcArmar
-        public static void opcArmar(user[] users, boolean inv, int x, int total, String[] productos) {
+        public static void opcArmar(user[] users, boolean inv, int x, int total, String productos) {
         
             int opcionArmar = 0;
 
@@ -249,10 +245,10 @@ public class proyecto {
         switch (opcionArmar) {
             case 0:
                 mostrarComidas(users, inv, x, total, productos);
-                continue;
+                break;
             case 1:
                 mostrarBebidas(users, inv, x, total, productos);
-                continue;
+                break;
             case 2:
                 JOptionPane.showMessageDialog(null, "Volver atrás");
                 // Agrega la lógica para volver atrás
@@ -268,23 +264,28 @@ public class proyecto {
 
     // Subproceso Carrito y productosCarrito
 
-    /* .
-     * .
-     * .
-     */
+    public static String ProductosCarrito(String productos, String producto) {
+        productos += producto + "/n";
+        return productos;
+    }
+
+    public static double Carrito(double total, double precio) {
+        total += precio;
+        return total;
+    }
 
     // Subproceso 9: Mostrar comidas disponibles
-    public static void mostrarComidas(String user, String pass, String domicilio, int cel, user[] users, boolean inv, int x) {
+    public static void mostrarComidas(user[] users, boolean inv, int x, double total, String productos) {
     }
 
     // Subproceso 10: Mostrar bebidas disponibles (Marcos)
-    public static void mostrarBebidas(String user, String pass, String domicilio, int cel, user[] users, boolean inv, int x) {
+    public static void mostrarBebidas(user[] users, boolean inv, int x, double total, String productos) {
 
         // Declarar variables
 
-        int i, j, opcion, carro, opcEnvio;
+        int i, j, opcion, opcEnvio;
         String bebidaElegida = "";
-        double precio = 0;
+        double carro, precio = 0;
         String[][] bebidas = new String[4][4];
         double[][] precioBebidas = new double[4][4];
         String dom_inv = "";
@@ -464,8 +465,5 @@ public class proyecto {
 
     }
 
-     
 
-
-
-    }
+}
