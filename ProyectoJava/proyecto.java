@@ -173,8 +173,7 @@ public class proyecto {
         
     }
 
-    private static void menu(user[] users,
-            boolean inv, int x, double total, String productos) {
+    public static void menu(user[] users, boolean inv, int x, double total, String productos) {
         
         if (inv = false) {
          JOptionPane.showMessageDialog(null, "Bienvenido: " + users[x].getUsuario());
