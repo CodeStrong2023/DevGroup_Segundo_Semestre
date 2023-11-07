@@ -204,7 +204,7 @@ public class proyecto {
     }
     // SUBP Opc Comprar
 
-    public static void opcComprar(int opcComprar, int carro, char comboDia, char opcCarrito, int opcEnvio, int Productos, int X, int inv, int total, char saveDom, int dom_inv){
+    public static void opcComprar(int opcComprar, int carro, char comboDia, char opcCarrito, int opcEnvio, int Productos, int X, int inv, int total, String saveDom[], int dom_inv){
         JOptionPane.showMessageDialog(null,"1: Mostrar combos disponibles");
         JOptionPane.showMessageDialog(null,"2: Mostrar combo del día");
         JOptionPane.showMessageDialog(null,"3: Volver atrás");
@@ -233,7 +233,7 @@ public class proyecto {
                             opcionesArmar();
                         } else if (opcCarrito == 'N' || opcCarrito == 'n') {
                             mostrar_carrito(carro, productos);
-                            int opcEnvio = Integer.parseInt(JOptionPane.showInputDialog("Desea...\n1 - Retirar en el local.\n2 - Envío a domicilio."));
+                             opcEnvio = Integer.parseInt(JOptionPane.showInputDialog("Desea...\n1 - Retirar en el local.\n2 - Envío a domicilio."));
 
                             if (opcEnvio == 2) {
                                 JOptionPane.showMessageDialog(null, "Ha seleccionado -Envío a Domicilio-");
