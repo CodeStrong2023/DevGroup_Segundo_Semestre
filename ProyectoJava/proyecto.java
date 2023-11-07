@@ -484,11 +484,8 @@ public class proyecto {
 
 
     // Subproceso 9: Mostrar comidas disponibles
-    public static void mostrarComidas(user[] users, boolean inv, int x, double total, String productos) {
-        public class mostrarComidas01 {
+    public class mostrarComidas01 {
     static int x = 0; // Variable estática para llevar el conteo de productos en el carrito
-
-    public static void main(String[] args) {
         int i, j;
         int opcion, carro = 0;
         int opcEnvio = 0;
@@ -501,10 +498,10 @@ public class proyecto {
         String[] productos = new String[100];
         double total = 0.0;
         boolean inv = true;
-        String saved_user = "";
-        String saved_pass = "";
-        String saved_dom = "";
-        String saved_cel = "";
+        String save_user = "";
+        String save_pass = "";
+        String save_dom = "";
+        String save_cel = "";
 
         // Inicializar variable precio
         precio = 0;
@@ -637,7 +634,7 @@ public class proyecto {
                 carro = Carrito(total, precio);
                 productos = ProductosCarrito(productos, comidaElegida);
                 mostrarCarrito(carro, productos);
-                opcArmar(saved_user, saved_pass, saved_dom, saved_cel, inv, x, total, productos);
+                opcArmar(save_user, save_pass, save_dom, save_cel, inv, x, total, productos);
             } else {
                 if (opcCarrito == 'N' || opcCarrito == 'n') {
                     carro = Carrito(total, precio);
@@ -652,8 +649,8 @@ public class proyecto {
                         if (inv) {
                             dom_inv = JOptionPane.showInputDialog("Por Favor Ingrese su domicilio: ");
                         } else {
-                            if (saved_dom.equals("")) {
-                                saved_dom = JOptionPane.showInputDialog("Domicilio No cargado. Por Favor Ingrese su domicilio: ");
+                            if (save_dom.equals("")) {
+                                save_dom = JOptionPane.showInputDialog("Domicilio No cargado. Por Favor Ingrese su domicilio: ");
                             }
                         }
                         fin_compra();
@@ -702,7 +699,6 @@ public class proyecto {
         // Implementa la lógica para finalizar la compra aquí
     }
 }
-    }
 
     // Subproceso 10: Mostrar bebidas disponibles (Marcos)
     public static void mostrarBebidas(user[] users, boolean inv, int x, double total, String productos) {
