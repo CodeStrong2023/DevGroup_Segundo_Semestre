@@ -1,7 +1,5 @@
 package ProyectoJava;
 
-import java.util.Scanner;
-
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import ProyectoJava.user;
@@ -175,15 +173,9 @@ public class proyecto {
         
     }
 
-<<<<<<< HEAD
     private static void menu(user[] users) {
         String[] opcionesMenu = {"Comprar un combo","Armar Pedido"};
         if (!inv) {
-=======
-    public static void menu(user[] users, boolean inv, int x, double total, String productos) {
-        
-        if (inv = false) {
->>>>>>> f2900fb61c09f782e46859859204572314d200d0
          JOptionPane.showMessageDialog(null, "Bienvenido: " + users[x].getUsuario());
          }
         else {
@@ -206,112 +198,12 @@ public class proyecto {
     }
     // SUBP Opc Comprar
 
-    public static void opcComprar(int opcComprar, int carro, char comboDia, char opcCarrito, int opcEnvio, int Productos, int X, int inv, int total, String saveDom[], int dom_inv){
-        JOptionPane.showMessageDialog(null,"1: Mostrar combos disponibles");
-        JOptionPane.showMessageDialog(null,"2: Mostrar combo del día");
-        JOptionPane.showMessageDialog(null,"3: Volver atrás");
-        opcComprar = Integer.parseInt(JOptionPane.showInputDialog("Elija una opción:"));
-
-        switch (opcComprar) {
-            case 1:
-                mostrarCombos();
-                break;
-            case 2:
-                JOptionPane.showMessageDialog(null,"Combo del día: Tacos + papas + cerveza + helado");
-                JOptionPane.showMessageDialog(null,"El precio del combo del día es de: $4000");
-                JOptionPane.showMessageDialog(null,"¿Desea comprar este combo? (s/n)");
-                comboDia = JOptionPane.showInputDialog("¿Desea comprar este combo? (s/n)").charAt(0);
-
-                while (comboDia == 'S' || comboDia == 's') {
-                    carro = Carrito(carro, 4000);
-                    productos = ProductosCarrito(productos, "Tacos + papas + cerveza + helado");
-                    mostrar_carrito(carro, productos);
-
-                    do {
-                        String opcCarritoStr = JOptionPane.showInputDialog("¿Desea agregar algo más al carrito? (S/N)");
-                        opcCarrito = opcCarritoStr.charAt(0);
-
-                        if (opcCarrito == 'S' || opcCarrito == 's') {
-                            opcionesArmar();
-                        } else if (opcCarrito == 'N' || opcCarrito == 'n') {
-                            mostrar_carrito(carro, productos);
-                             opcEnvio = Integer.parseInt(JOptionPane.showInputDialog("Desea...\n1 - Retirar en el local.\n2 - Envío a domicilio."));
-
-                            if (opcEnvio == 2) {
-                                JOptionPane.showMessageDialog(null, "Ha seleccionado -Envío a Domicilio-");
-                                JOptionPane.showMessageDialog(null, "El costo de envío es de $200.");
-                                JOptionPane.showMessageDialog(null, "El monto total es de: $" + (carro + 200));
-
-                                if (inv) {
-                                    dom_inv = JOptionPane.showInputDialog("Por favor, ingrese su domicilio:");
-                                    fin_compra();
-                                } else {
-                                    if (saveDom[x].equals("")) {
-                                        saveDom[x] = JOptionPane.showInputDialog("Domicilio no cargado. Por favor, ingrese su domicilio:");
-                                        fin_compra();
-                                    } else {
-                                        fin_compra();
-                                    }
-                                }
-                            } else if (opcEnvio == 1) {
-                                JOptionPane.showMessageDialog(null, "Ha seleccionado -Retirar en el local-");
-                                JOptionPane.showMessageDialog(null, "El monto total es de: $" + carro);
-                            }
-                        } else {
-                            JOptionPane.showMessageDialog(null, "Error. Opción no válida. Ingrese nuevamente.");
-                        }
-                    } while (opcCarrito != 'N' && opcCarrito != 'n' && opcCarrito != 'S' && opcCarrito != 's');
-                }
-                break;
-            case 3:
-                System.out.println("Volver atrás\n");
-                menu();
-                break;
-        }
-    }
-
-    public static void mostrarCombos() {
-        // Implementa la lógica para mostrar los combos disponibles
-    }
-
-    public static int Carrito(int carro, int precio) {
-        // Implementa la lógica para agregar productos al carrito y actualizar el total
-        return carro + precio;
-    }
-
-    public static String[] ProductosCarrito(String[] productos, String nuevoProducto) {
-        // Implementa la lógica para agregar productos al arreglo de productos del carrito
-        // Devuelve el arreglo actualizado
-        return productos;
-    }
-
-    public static void mostrar_carrito(int carro, String[] productos) {
-        // Implementa la lógica para mostrar el contenido del carrito
-    }
-
-    public static void opcionesArmar() {
-        // Implementa la lógica para agregar más productos al carrito
-    }
-
-    public static void fin_compra() {
-        // Implementa la lógica para finalizar la compra
-    }
-
-    public static void menu() {
-        // Implementa la lógica del menú principal
-    }
-}
-    
-    
-    // Creamos el método opcArmar
-
     private static void opcComprar(user[] users) {
         String[] opcionesComprar = {"Mostrar combos disponibles", "Mostrar combo del día", "Volver atrás"}, opcComboDia = {"Si", "No", "Volver atras"};
         String[] opcionesEnvio = {"Envio a domicilio", "Retirar en el local"};
         String[] opcionesComprar2 = {"Agregar un combo", "Mostrar Bebidas", "Mostrar Comidas"};
         String dom_inv = "";
         int opcComprar =  JOptionPane.showOptionDialog(null, "Elija una opción:", "Compras", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, new ImageIcon("ProyectoJava/betan (1).jpg"), opcionesComprar, opcionesComprar[2]);
-        double carro = 0;
         switch (opcComprar) {
             case 0:
                 mostrarCombos(users);
@@ -321,7 +213,7 @@ public class proyecto {
                 JOptionPane.showMessageDialog(null,"El precio del combo del día es de: $4000");
                 int comboDia = JOptionPane.showOptionDialog(null, "¿Desea comprar este combo?", "COMBO DEL DIA", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, new ImageIcon("ProyectoJava/betan (1).jpg"), opcComboDia, opcComboDia[2]);
 
-                while (comboDia == 0) {
+                if (comboDia == 0) {
                     Carrito(4000);
                     ProductosCarrito("Tacos + papas + cerveza + helado");
                     mostrar_carrito();
@@ -349,7 +241,7 @@ public class proyecto {
                             if (opcEnvio == 0) {
                                 JOptionPane.showMessageDialog(null, "Ha seleccionado -Envío a Domicilio-");
                                 JOptionPane.showMessageDialog(null, "El costo de envío es de $200.");
-                                JOptionPane.showMessageDialog(null, "El monto total es de: $" + (carro + 200));
+                                JOptionPane.showMessageDialog(null, "El monto total es de: $" + (total + 200));
 
                                 if (inv) {
                                     dom_inv = JOptionPane.showInputDialog("Por favor, ingrese su domicilio:");
@@ -367,7 +259,9 @@ public class proyecto {
                                 }
                             } else if (opcEnvio == 1) {
                                 JOptionPane.showMessageDialog(null, "Ha seleccionado -Retirar en el local-");
-                                JOptionPane.showMessageDialog(null, "El monto total es de: $" + carro);
+                                JOptionPane.showMessageDialog(null, "El monto total es de: $" + total);
+                                fin_compra();
+                                return;
                             }
                         } 
                 }
@@ -408,8 +302,7 @@ public class proyecto {
 
     }
     public static void mostrarCombos(user[] users){
-        int i, opcDom, response;
-        double carro = 0;
+        int i, response;
         int opcEnvio;
         String comboElegido = "";
         String dom_inv;
@@ -419,9 +312,8 @@ public class proyecto {
             "Pancho + papas + cerveza + helado",
             "Empanadas + papas + cerveza + helado"
         };
-        double[] precioCombos = { 3500, 4000, 1800, 3000 };
+        double[] precioCombos = { 3500, 4000, 1800, 3000};
         double precio = 0; // Declarar precio e inicializarlo a 0
-        int opcionComboIndex;
 
             // Muestra la lista de combos
             Object selectedCombo = JOptionPane.showInputDialog(null, "Elige un combo:", "Combos disponibles", JOptionPane.QUESTION_MESSAGE, new ImageIcon("ProyectoJava/betan (1).jpg"), combos, combos[0]);
@@ -451,7 +343,7 @@ public class proyecto {
                     if (opcEnvio == 1) {
                         JOptionPane.showMessageDialog(null, "Ha seleccionado -Envío a Domicilio-");
                         JOptionPane.showMessageDialog(null, "El costo de envío es de $200.");
-                        JOptionPane.showMessageDialog(null, "El monto total es de: $ " + (carro + 200));
+                        JOptionPane.showMessageDialog(null, "El monto total es de: $ " + (total + 200));
 
                         if (inv) {
                             dom_inv = JOptionPane.showInputDialog("Por favor, ingrese su domicilio: ");
@@ -470,7 +362,7 @@ public class proyecto {
                     } else {
                         if (opcEnvio == 0) {
                             JOptionPane.showMessageDialog(null, "Ha seleccionado -Retirar en el local-");
-                            JOptionPane.showMessageDialog(null, "El monto total es de: $ " + carro);
+                            JOptionPane.showMessageDialog(null, "El monto total es de: $ " + total);
                         }
                     }
                 } else {
@@ -494,342 +386,8 @@ public class proyecto {
 
     public static void Carrito(double precio) {
         total += precio;
-    }
-    //subproceso 8: mostrarcombos
-
-    public class mostrarcombos01 {
-        public static void main(String[] args) {
-            int total = 0;
-            String productos = "";
-            String users = "nombre_de_usuario";
-            String pass = "mi_contraseña";
-            String dom = "mi_direccion";
-            String cel = "123-456-7890";
-            boolean inv_ = false;
-            int x = 0;
-            mostrarCombos(total, productos, users, pass, dom, cel, inv_, x);
-        }
-    
-        static void mostrarCombos(int total, String productos, String users, String pass, String dom, String cel, boolean inv, int x) {
-            int i, j, opcDom;
-            int carro = 0;
-            char opcCarrito = 'S'; // Inicializamos opcCarrito en 'S' para entrar al bucle
-            int opcEnvio;
-            String comboElegido = "";
-            String dom_inv;
-            String[] combos = {
-                "Pizza especial + papas + cerveza + helado",
-                "Milanesa + papas + cerveza + helado",
-                "Pancho + papas + cerveza + helado",
-                "Empanadas + papas + cerveza + helado"
-            };
-            double[] precioCombos = { 3500, 4000, 1800, 3000 };
-            double precio = 0; // Declarar precio e inicializarlo a 0
-            int opcionComboIndex;
-    
-            while (opcCarrito == 'S' || opcCarrito == 's') {
-                JOptionPane.showMessageDialog(null, "Combos disponibles"); // Muestra la lista de combos
-    
-                Object selectedCombo = JOptionPane.showInputDialog(null, "Elige un combo:", "Selección de Combo", JOptionPane.QUESTION_MESSAGE, null, combos, combos[0]);
-    
-                if (selectedCombo != null) {
-                    comboElegido = selectedCombo.toString();
-                    for (i = 0; i < combos.length; i++) {
-                        if (combos[i].equals(comboElegido)) {
-                            precio += precioCombos[i];
-                            break;
-                        }
-                    }
-    
-                    // Mostrar resultados
-                    carro = Carrito(total, precio);
-                    productos = ProductosCarrito(productos, comboElegido);
-                    mostrarCarrito(carro, productos);
-    
-                    Object[] options = {"Sí", "No"};
-                    int response = JOptionPane.showOptionDialog(null, "¿Desea agregar algo más al carrito?", "Agregar al Carrito", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
-    
-                    if (response == JOptionPane.NO_OPTION) {
-                        opcCarrito = 'N';
-                    }
-                } else {
-                    JOptionPane.showMessageDialog(null, "Combo no válido. Por favor, elija nuevamente.");
-                }
-            }
-    
-            if (opcCarrito == 'N' || opcCarrito == 'n') {
-                mostrarCarrito(carro, productos);
-    
-                String[] envioOptions = {"Retirar en el local", "Envío a domicilio"};
-                opcEnvio = JOptionPane.showOptionDialog(null, "Desea...", "Opciones de Envío", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, envioOptions, envioOptions[0]);
-    
-                if (opcEnvio == 1) {
-                    JOptionPane.showMessageDialog(null, "Ha seleccionado -Envío a Domicilio-");
-                    JOptionPane.showMessageDialog(null, "El costo de envío es de $200.");
-                    JOptionPane.showMessageDialog(null, "El monto total es de: $ " + (carro + 200));
-    
-                    if (inv) {
-                        dom_inv = JOptionPane.showInputDialog("Por favor, ingrese su domicilio: ");
-                        finCompra();
-                    } else {
-                        if (dom.equals("")) {
-                            dom = JOptionPane.showInputDialog("Domicilio No cargado. Por Favor Ingrese su domicilio: ");
-                            finCompra();
-                        } else {
-                            finCompra();
-                        }
-                    }
-                } else {
-                    if (opcEnvio == 0) {
-                        JOptionPane.showMessageDialog(null, "Ha seleccionado -Retirar en el local-");
-                        JOptionPane.showMessageDialog(null, "El monto total es de: $ " + carro);
-                    }
-                }
-            }
-        }
-    
-        static int Carrito(int total, double precio) {
-            return total + (int) precio;
-        }
-    
-        static String ProductosCarrito(String productos, String comboElegido) {
-            if (productos.isEmpty()) {
-                productos = comboElegido;
-            } else {
-                productos += ", " + comboElegido;
-            }
-            return productos;
-        }
-    
-        static void mostrarCarrito(int carro, String productos) {
-            JOptionPane.showMessageDialog(null, "Productos en el carrito: " + productos + "\nTotal: $" + carro);
-        }
-
-
-    // Subproceso 9: Mostrar comidas disponibles
-<<<<<<< HEAD
+    }    // Subproceso 9: Mostrar comidas disponibles
     public static void mostrarComidas(user[] users) {
-=======
-    public class mostrarComidas01 {
-    static int x = 0; // Variable estática para llevar el conteo de productos en el carrito
-        int i, j;
-        int opcion, carro = 0;
-        int opcEnvio = 0;
-        String[][] comidas = new String[4][4];
-        String comidaElegida = "";
-        String dom_inv = "";
-        double precio = 0;
-        double precioComida = 0;
-        double[][] preciosComida = new double[4][4];
-        String[] productos = new String[100];
-        double total = 0.0;
-        boolean inv = true;
-        String save_user = "";
-        String save_pass = "";
-        String save_dom = "";
-        String save_cel = "";
-
-        // Inicializar variable precio
-        precio = 0;
-
-        // Llenar matriz de comidas
-        comidas[0][0] = "1) Pizza cuatro quesos";
-        comidas[0][1] = "2) Pizza de peperoni";
-        comidas[0][2] = "3) Pizza napolitana";
-        comidas[0][3] = "4) Pizza fugazzeta";
-        comidas[1][0] = "5) Empanadas de jamón y queso";
-        comidas[1][1] = "6) Empanadas árabes";
-        comidas[1][2] = "7) Empanadas de soja";
-        comidas[1][3] = "8) Empanadas de carne";
-        comidas[2][0] = "9) Papas con cheddar";
-        comidas[2][1] = "10) Papas con crema";
-        comidas[2][2] = "11) Papas a caballo";
-        comidas[2][3] = "12) Papas con salsa";
-        comidas[3][0] = "13) Milanesa napolitana";
-        comidas[3][1] = "14) Milanesa a caballo";
-        comidas[3][2] = "15) Milanesa suiza";
-        comidas[3][3] = "16) Milanesa de berenjena";
-
-        // Llenar matriz de precios de comidas
-        preciosComida[0][0] = 800;
-        preciosComida[0][1] = 750;
-        preciosComida[0][2] = 900;
-        preciosComida[0][3] = 880;
-        preciosComida[1][0] = 1000;
-        preciosComida[1][1] = 950;
-        preciosComida[1][2] = 920;
-        preciosComida[1][3] = 950;
-        preciosComida[2][0] = 600;
-        preciosComida[2][1] = 550;
-        preciosComida[2][2] = 700;
-        preciosComida[2][3] = 500;
-        preciosComida[3][0] = 800;
-        preciosComida[3][1] = 850;
-        preciosComida[3][2] = 750;
-        preciosComida[3][3] = 500;
-
-        // Mostrar comidas
-        StringBuilder message = new StringBuilder();
-        for (i = 0; i < 4; i++) {
-            for (j = 0; j < 4; j++) {
-                message.append(comidas[i][j]).append(" $ ").append(preciosComida[i][j]).append("\n");
-            }
-        }
-        JOptionPane.showMessageDialog(null, message.toString());
-
-        String input = JOptionPane.showInputDialog("Ingrese la opción que desee: ");
-        opcion = Integer.parseInt(input);
-
-        switch (opcion) {
-            case 1:
-                comidaElegida = "Pizza cuatro quesos";
-                precio += preciosComida[0][0];
-                break;
-            case 2:
-                comidaElegida = "Pizza de peperoni";
-                precio += preciosComida[0][1];
-                break;
-            case 3:
-                comidaElegida = "Pizza napolitana";
-                precio += preciosComida[0][2];
-                break;
-            case 4:
-                comidaElegida = "Pizza fugazzeta";
-                precio += preciosComida[0][3];
-                break;
-            case 5:
-                comidaElegida = "Empanadas de jamón y queso";
-                precio += preciosComida[1][0];
-                break;
-            case 6:
-                comidaElegida = "Empanadas árabes";
-                precio += preciosComida[1][1];
-                break;
-            case 7:
-                comidaElegida = "Empanadas de soja";
-                precio += preciosComida[1][2];
-                break;
-            case 8:
-                comidaElegida = "Empanadas de carne";
-                precio += preciosComida[1][3];
-                break;
-            case 9:
-                comidaElegida = "Papas con cheddar";
-                precio += preciosComida[2][0];
-                break;
-            case 10:
-                comidaElegida = "Papas con crema";
-                precio += preciosComida[2][1];
-                break;
-            case 11:
-                comidaElegida = "Papas a caballo";
-                precio += preciosComida[2][2];
-                break;
-            case 12:
-                comidaElegida = "Papas con salsa";
-                precio += preciosComida[2][3];
-                break;
-            case 13:
-                comidaElegida = "Milanesa napolitana";
-                precio += preciosComida[3][0];
-                break;
-            case 14:
-                comidaElegida = "Milanesa a caballo";
-                precio += preciosComida[3][1];
-                break;
-            case 15:
-                comidaElegida = "Milanesa suiza";
-                precio += preciosComida[3][2];
-                break;
-            case 16:
-                comidaElegida = "Milanesa de berenjena";
-                precio += preciosComida[3][3];
-                break;
-        }
-
-        JOptionPane.showMessageDialog(null, "Se ha añadido al carrito: " + comidaElegida);
-
-        // Mostrarmos la opción elegida que se añadió al carrito
-        // Damos la opción al usuario de agregar o no más productos al carrito
-        char opcCarrito = ' ';
-        do {
-            input = JOptionPane.showInputDialog("¿Desea agregar algo más al carrito? (S/N) ");
-            opcCarrito = input.charAt(0);
-
-            if (opcCarrito == 'S' || opcCarrito == 's') {
-                carro = Carrito(total, precio);
-                productos = ProductosCarrito(productos, comidaElegida);
-                mostrarCarrito(carro, productos);
-                opcArmar(save_user, save_pass, save_dom, save_cel, inv, x, total, productos);
-            } else {
-                if (opcCarrito == 'N' || opcCarrito == 'n') {
-                    carro = Carrito(total, precio);
-                    productos = ProductosCarrito(productos, comidaElegida);
-
-                    Object[] options = {"Retirar en el local", "Envío a domicilio"};
-                    int choice = JOptionPane.showOptionDialog(null, "Desea...", "Opción de envío", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, options[0]);
-
-                    if (choice == 1) {
-                        JOptionPane.showMessageDialog(null, "Ha seleccionado -Envío a Domicilio-\nEl costo de envío es de $200.\nEl monto total es de: $ " + (carro + 200));
-
-                        if (inv) {
-                            dom_inv = JOptionPane.showInputDialog("Por Favor Ingrese su domicilio: ");
-                        } else {
-                            if (save_dom.equals("")) {
-                                save_dom = JOptionPane.showInputDialog("Domicilio No cargado. Por Favor Ingrese su domicilio: ");
-                            }
-                        }
-                        fin_compra();
-                    } else {
-                        if (choice == 0) {
-                            JOptionPane.showMessageDialog(null, "Ha seleccionado -Retirar en el local-\nEl monto total es de: $ " + carro);
-                        }
-                    }
-                } else {
-                    JOptionPane.showMessageDialog(null, "Error. Opción no válida. Ingrese nuevamente.");
-                }
-            }
-        } while (opcCarrito == 'N' || opcCarrito == 'n' || opcCarrito == 'S' || opcCarrito == 's');
-
-        JOptionPane.showMessageDialog(null, " ");
-    }
-
-    // Método para calcular el total del carrito
-    public static int Carrito(double total, double precio) {
-        return (int) (total + precio);
-    }
-
-    // Método para agregar productos al carrito
-    public static String[] ProductosCarrito(String[] productos, String producto) {
-        productos[x] = producto;
-        x++;
-        return productos;
-    }
-
-    // Método para mostrar el contenido del carrito
-    public static void mostrarCarrito(int carro, String[] productos) {
-        StringBuilder message = new StringBuilder("Contenido del carrito:\n");
-        for (int i = 0; i < x; i++) {
-            message.append(productos[i]).append("\n");
-        }
-        JOptionPane.showMessageDialog(null, message.toString() + "Monto total en el carrito: $" + carro);
-    }
-
-    // Método para realizar la opción de armar
-    public static void opcArmar(String saved_user, String saved_pass, String saved_dom, String saved_cel, boolean inv, int x, double total, String[] productos) {
-        // Implementa la lógica de la opción "opcArmar" aquí
-    }
-
-    // Método para finalizar la compra
-    public static void fin_compra() {
-        // Implementa la lógica para finalizar la compra aquí
-    }
-}
-
-    // Subproceso 10: Mostrar bebidas disponibles (Marcos)
-    public static void mostrarBebidas(user[] users, boolean inv, int x, double total, String productos) {
-
->>>>>>> f2900fb61c09f782e46859859204572314d200d0
         // Declarar variables
         String[] opciones2 = {"Si", "No"};
         int i, opcEnvio;
@@ -850,7 +408,7 @@ public class proyecto {
         "Milanesa napolitana $800",
         "Milanesa a caballo $850",
         "Milanesa suiza $750",
-        "Milanesa de berenjena $500"};
+        "Milanesa de berenjena -$500"};
         String[] comidasSP = {"Pizza cuatro quesos",
         "Pizza de peperoni",
         "Pizza napolitana",
@@ -953,7 +511,7 @@ public class proyecto {
         // Declarar variables
         String[] opciones2 = {"Si", "No"};
         int i, opcEnvio;
-        String bebidaElegida = "", productosB = "";
+        String bebidaElegida = "";
         double precio = 0;
         String[] bebidas = {"Cerveza: Quilmes $300 ",
         "Cerveza: Brahmita $250",
