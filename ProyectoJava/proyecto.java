@@ -394,7 +394,7 @@ public class proyecto {
         String comidaElegida = "";
         double precio = 0;
         String[] comidas = {"Pizza cuatro quesos $800",
-        "Pizza de peperoni $750",
+        "Pizza de peperoni $750",w
         "Pizza napolitana $900",
         "Pizza fugazzeta $880",
         "Empanadas de jamón y queso $1000",
